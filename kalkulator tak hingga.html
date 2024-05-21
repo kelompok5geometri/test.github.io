@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAM DERET GEOMETRI</title>
+    <link rel="stylesheet" type="text/css" href="takhingga.css.css">
+</head>
+<body>
+    <div class="container">
+        <h2>KALKULATOR DERET GEOMETRI TAK HINGGA</h2>
+        <div class="form-group">
+            <label for="first-term">Suku pertama (a₁):</label>
+            <input type="text" id="first-term">
+        </div>
+        <div class="form-group">
+            <label for="common-ratio">Rasio (r): </label>
+            <p>note*rasio harus lebih kecil dari 1(r < 1)</p>
+            <input type="text" id="common-ratio">
+        </div> <!-- tambahkan penutup tag div ini -->
+        <div class="btn-group">
+            <button onclick="Hitung()">Hitung</button>
+            <button onclick="Hapus()">Hapus</button>
+            <button onclick="Reset()">Reset</button>
+            <button onclick="Keluar()">Keluar</button>
+        </div>
+        <div class="result-container">
+            <h3>Hasil:</h3>
+            <div id="result"></div>
+            <!-- Tidak ada elemen dengan id "sum" di dalam struktur HTML Anda -->
+        </div>
+    </div>
+    <script>
+        // JavaScript dimulai di sini
+
+        // Fungsi untuk mengubah input pecahan menjadi angka desimal
+        function parseFraction(input) {
+            const parts = input.split('/');
+            if (parts.length === 2) {
+                const numerator = parseFloat(parts[0]);
+                const denominator = parseFloat(parts[1]);
+                if (!isNaN(numerator) && !isNaN(denominator) && denominator !== 0) {
+                    return numerator / denominator;
+                }
+            }
+            return parseFloat(input);  // Jika bukan pecahan, parsing biasa
+        }
+
+        // Fungsi untuk menghitung jumlah deret geometri tak hingga
+        function calculateInfiniteGeometricSeries(firstTerm, commonRatio) {
+            if (Math.abs(commonRatio) >= 1) {
+                return "Rasio harus kurang dari 1 untuk deret tak hingga.";
+            } else {
+                return firstTerm / (1 - commonRatio);
+            }
+        }
+
+        // Fungsi untuk menampilkan hasilnya
+        function displayResult(sum) {
+            const resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = `Jumlah Deret Tak Hingga: ${sum}`;
+        }
+
+        // Fungsi untuk menghitung dan menampilkan hasil saat tombol "Hitung" diklik
+        function Hitung() {
+            const firstTermInput = document.getElementById("first-term").value;
+            const commonRatioInput = document.getElementById("common-ratio").value;
+
+            const firstTerm = parseFraction(firstTermInput);
+            const commonRatio = parseFraction(commonRatioInput);
+
+            if (!isNaN(firstTerm) && !isNaN(commonRatio)) {
+                const sum = calculateInfiniteGeometricSeries(firstTerm, commonRatio);
+                displayResult(sum);
+            } else {
+                alert("Mohon isi semua input dengan benar.");
+            }
+        }
+
+        // Fungsi untuk menghapus hasilnya
+        function Hapus() {
+            document.getElementById('result').innerHTML = "";
+            // Tidak ada elemen dengan id "sum" di dalam struktur HTML Anda
+        }
+
+        // Fungsi untuk mengatur ulang semua kolom input
+        function Reset() {
+            document.getElementById('first-term').value = "";
+            document.getElementById('common-ratio').value = "";
+            Hapus();
+        }
+
+        // Fungsi untuk keluar dari kalkulator
+        function Keluar() {
+            const confirmation = confirm("Apakah Anda yakin ingin keluar?");
+            if (confirmation) {
+                window.location.href = "about:blank"; // Navigasikan ke halaman kosong
+            }
+        }
+    </script>
+    <!-- JavaScript berakhir di sini -->
+</body>
+</html>

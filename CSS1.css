@@ -1,0 +1,138 @@
+/* Mengimpor font dari Google Fonts dengan nama "Acme" untuk digunakan dalam halaman web */
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+/* Menyesuaikan semua elemen HTML */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Mengatur latar belakang halaman dengan gradient linear dari hitam ke warna lain */
+body {
+    background: linear-gradient(black,#38073b);
+    /* Menggunakan font "Acme" atau fallback ke font sans-serif jika font "Acme" tidak tersedia */
+    font-family: "Acme", sans-serif;
+}
+
+/* Mengatur tampilan tombol dengan id "exploreButton" */
+#exploreButton {
+    position: absolute;
+    top: 900px; /* Menyesuaikan posisi tombol di atas semua elemen */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999; /* Menempatkan tombol di atas semua elemen */
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+    color: white; /* Menambahkan warna putih pada teks tombol */
+    background-color: transparent; /* Menghapus warna latar belakang */
+    text-decoration: none; /* Menghapus dekorasi tautan */
+    font-size: 18px;
+    cursor: pointer; /* Menambahkan cursor pointer untuk menandakan tombol dapat diklik */  
+}
+
+/* Efek hover pada tombol */
+#exploreButton:hover {
+    background-color: white;
+    color: #333;
+}
+
+/* Mengatur tampilan konten deret geometri */
+.deret {
+    position: relative;
+    width: 100%;
+    height: 200vh;
+    padding: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  
+}
+
+/* Efek visual sebelum konten deret geometri */
+.deret::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #c4c2c3, transparent);
+    z-index: 1000;
+}
+
+/* Menyesuaikan tampilan gambar dalam konten deret geometri */
+.deret img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mengatur tampilan teks di atas konten deret geometri */
+#text {
+    position: absolute;
+    font-size: 5em;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 1px 3px grey;
+    top: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Menyesuaikan tampilan gambar meteor dalam konten deret geometri */
+.deret img#meteorid {
+    z-index: 100;
+}
+
+/* Mengatur tampilan deskripsi tentang deret geometri */
+.description {
+    position: relative;
+    padding: 10em;
+    background-color: #c4c2c3;
+}
+
+/* Menyesuaikan tampilan teks dalam deskripsi tentang deret geometri */
+.description p {
+    font-size: 1.1em;
+}
+
+/* Mengatur tampilan navigasi */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+/* Mengatur tampilan menu */
+.menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+}
+
+/* Menyesuaikan tampilan item menu */
+.menu li {
+    margin-right: 20px;
+    border: 1px solid white;
+    padding: 10px 20px;
+}
+
+/* Menyesuaikan tampilan tautan dalam item menu */
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Efek hover pada tautan dalam item menu */
+.menu li a:hover {
+    color: #ffc107;
+}

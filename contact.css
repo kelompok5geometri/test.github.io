@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif; /* Font family untuk teks */
+    background-color: #000; /* Warna latar belakang */
+    margin: 0; /* Hapus margin default */
+    padding: 0; /* Hapus padding default */
+    overflow: hidden; /* Hindari scroll pada animasi */
+}
+.container img {
+    display: block; /* Membuat gambar menjadi elemen block */
+    margin: 0 auto; /* Pusatkan gambar secara horizontal */
+    max-width: 50%; /* Lebar maksimum gambar */
+    height: auto; /* Tinggi otomatis untuk menjaga proporsi gambar */
+    border-radius: 10px; /* Membuat sudut gambar membulat */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Bayangan lembut untuk gambar */
+}
+.container-box {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: center; /* Pusatkan konten secara horizontal */
+    align-items: center; /* Pusatkan konten secara vertikal */
+    height: 100vh; /* Tinggi sesuai viewport */
+}
+
+.container {
+    width: 80%; /* Lebar kontainer */
+    padding: 20px; /* Padding untuk ruang tambahan */
+    background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang kontainer */
+    border-radius: 10px; /* Membuat sudut kontainer sedikit membulat */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut untuk kontainer */
+}
+
+h1 {
+    text-align: center; /* Pusatkan judul */
+    color: #333; /* Warna teks judul */
+}
+
+.contact-info {
+    margin-top: 30px; /* Ruang atas untuk info kontak */
+}
+
+.address {
+    font-style: italic; /* Huruf miring untuk alamat */
+}
+
+.contact-item {
+    margin-top: 10px; /* Ruang atas untuk setiap item kontak */
+}
+
+.email-link, .website-link {
+    color: #007bff; /* Warna tautan */
+    text-decoration: none; /* Hapus garis bawah pada tautan */
+}
+
+.email-link:hover, .website-link:hover {
+    text-decoration: underline; /* Tambahkan garis bawah saat tautan dihover */
+}
+
+.additional-info {
+    margin-top: 30px; /* Ruang atas untuk info tambahan */
+}
+
+.additional-info h2 {
+    color: #333; /* Warna teks judul info tambahan */
+}
+
+.additional-info ul {
+    list-style-type: disc; /* Jenis marker daftar */
+    margin-left: 20px; /* Ruang kiri untuk daftar */
+}
+
+/* Animasi Planet */
+.planet {
+    position: absolute; /* Posisi absolut */
+    width: 200px; /* Lebar planet */
+    height: 200px; /* Tinggi planet */
+    background: radial-gradient(circle, #ff4500, transparent); /* Warna gradient */
+    border-radius: 50%; /* Membuat planet bulat */
+    animation: spin 20s linear infinite; /* Animasi putaran planet */
+    top: -100px; /* Posisi awal atas */
+    left: -100px; /* Posisi awal kiri */
+}
+
+/* Animasi Putaran */
+@keyframes spin {
+    100% {
+        transform: rotate(360deg); /* Putar 360 derajat */
+    }
+}

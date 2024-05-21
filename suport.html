@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Button</title>
+    <link rel="stylesheet" href="suport.css"> <!-- Memasukkan file CSS -->
+</head>
+<body>
+    <button id="supportBtn">Support</button>
+
+    <script>
+        // Fungsi untuk membuka tautan ke WhatsApp
+        function openWhatsApp() {
+            var phoneNumber = '6281234567890'; // Ganti dengan nomor WhatsApp yang diinginkan
+            var message = 'Halo, saya butuh bantuan.'; // Pesan awal untuk WhatsApp
+            
+            // Membuat URL dengan nomor telepon dan pesan
+            var url = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+            
+            // Buka tautan WhatsApp di jendela baru
+            window.open(url, '_blank');
+        }
+
+        // Menambahkan event listener untuk tombol support
+        document.getElementById('supportBtn').addEventListener('click', openWhatsApp);
+    </script>
+</body>
+</html>

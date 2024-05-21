@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAM DERET GEOMETRI</title>
+    <link rel="stylesheet" type="text/css" href="style kalkulator.csss.css">
+    
+</head>
+<body>       
+    </div>
+    <div class="container">
+        <h2>KALKULATOR DERET GEOMETRI</h2>
+        <div class="form-group">
+            <label for="first-term">Suku pertama (a₁):</label>
+            <input type="number" id="first-term" min="0" step="any">
+        </div>
+        <div class="form-group">
+            <label for="common-ratio">Rasio (r): </label>
+            <input type="number" id="common-ratio" min="0" step="any">
+        </div>
+        <div class="form-group">
+            <label for="num-terms">Jumlah Suku (n):</label>
+            <input type="number" id="num-terms" min="0">
+        </div>
+        <div class="btn-group">
+            <button onclick="Hitung()">Hitung</button>
+            <button onclick="Hapus()">Hapus</button>
+            <button onclick="reset()">Reset</button>
+            <button onclick="Keluar()">Keluar</button>
+        </div>
+        <div class="result-container">
+            <h3>Hasil:</h3>
+            <div id="result"></div>
+            <div id="sum"></div>
+        </div>
+    </div>
+    <script>
+        // Fungsi untuk menghitung jumlah deret geometri
+        function calculateGeometricSeries(firstTerm, commonRatio, numTerms) {
+            if (commonRatio === 1) {
+                return firstTerm * numTerms;
+            } else {
+                return firstTerm * (1 - Math.pow(commonRatio, numTerms)) / (1 - commonRatio);
+            }
+        }
+
+        // Fungsi untuk menampilpkan hasilnya
+        function displayResult(sum) {
+            const resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = `Jumlah Deret: ${sum}`;
+        }
+
+        // Fungsi untuk menghitung dan menampilkan hasil dan tombil "hitung" adalah click
+        function Hitung() {
+            const firstTerm = parseFloat(document.getElementById("first-term").value);
+            const commonRatio = parseFloat(document.getElementById("common-ratio").value);
+            const numTerms = parseInt(document.getElementById("num-terms").value);
+
+            if (!isNaN(firstTerm) && !isNaN(commonRatio) && !isNaN(numTerms)) {
+                const sum = calculateGeometricSeries(firstTerm, commonRatio, numTerms);
+                displayResult(sum);
+            } else {
+                alert("Mohon isi semua input dengan benar.");
+            }
+        }
+
+        // Fungsi untuk menghapus hasilnya
+        function Hapus() {
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("sum").innerHTML = "";
+        }
+
+        // Fungsi untuk mengatur ulang semua kolom input
+        function reset() {
+            document.getElementById("first-term").value = "";
+            document.getElementById("common-ratio").value = "";
+            document.getElementById("num-terms").value = "";
+            Hapus();
+        }
+
+        // Fungsi untuk keluar dari kalkulator
+        function Keluar() {
+            const confirmation = confirm("Apakah Anda yakin ingin keluar?");
+            if (confirmation) {
+                window.close(); // Close the current tab or window
+            }
+        }
+    </script>
+</body>
+</html>
