@@ -1,3 +1,88 @@
-<html>
-<h1>Hello world</h1>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabungan Halaman</title>
+    
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="CSS1.css">
+    <link rel="stylesheet" href="CSS2.css">
+
+    <!-- Inline CSS untuk beberapa aturan gaya -->
+    <style>
+        .error-message {
+            color: rgb(0, 0, 0);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav>
+        <a href="#login" id="exploreButton">LOGIN</a>
+    </nav>
+
+    <!-- Konten Deret Geometri -->
+    <div class="deret">
+        <h1 id="text">DERET GEOMETRI<br>KELOMPOK 5</h1>
+        <img src="stars.png" id="stars">
+        <img src="meteorid.png" id="meteorid">
+        <img src="rocket.png" id="rocket">
+    </div>
+
+    <div class="description">
+        <h2>Deret Geometri</h2>
+        <p> Selamat datang di situs web kami yang dibuat dalam rangka memenuhi tugas proyek pada mata kuliah Kalkulus. Dalam proyek ini, kami akan membahas tentang konsep Deret Geometri secara mendalam. Deret Geometri adalah suatu jenis deret khusus di mana setiap suku merupakan hasil perkalian dari suku sebelumnya dengan suatu bilangan tetap yang disebut rasio. Rasio ini menentukan pola pertumbuhan atau penyusutan dari deret tersebut.Kami berharap situs web ini dapat menjadi sumber belajar yang bermanfaat bagi Anda dalam mempelajari Deret Geometri. Jika ada pertanyaan atau saran, jangan ragu untuk menghubungi kami. Selamat belajar dan semoga sukses!!
+        </div>
+
+    <!-- Konten Login -->
+    <section id="login">
+        <img src="utama .jpg" class="bg">
+        <img src="astronot login.png" class="astronot">
+        <div class="login">
+            <h2>Sign In <div><img src="leaf5.png"></div></h2>
+            <form id="login-form">
+                <div class="inputBox">
+                    <input type="text" placeholder="Username" name="username" id="username">
+                </div>
+                <div class="inputBox">
+                    <input type="password" placeholder="Password" name="password" id="password">
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Login" id="btn">
+                </div>
+                <span id="error-message" class="error-message"></span>
+            </form>
+        </div>
+    </section>
+
+    <!-- Menghubungkan file JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Menambahkan event listener ke formulir login
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah perilaku bawaan dari pengiriman formulir
+            login(); // Panggil fungsi login saat form login disubmit
+        });
+
+        // Fungsi untuk memeriksa kredensial dan mengarahkan pengguna jika valid
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
+
+            // Contoh validasi (ganti dengan logika validasi sesuai kebutuhan Anda)
+            if (username === "admin" && password === "admin123") {
+                // Pengalihan halaman jika kredensial benar
+                window.location.href = "http://127.0.0.1:5500/halamn%20baru.html";
+            } else {
+                // Menampilkan pesan kesalahan jika kredensial salah
+                errorMessage.textContent = "Username atau password salah. Silakan coba lagi.";
+            }
+        }
+    </script>
+</body>
 </html>
